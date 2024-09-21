@@ -50,10 +50,12 @@ const styles = StyleSheet.create({
     fontWeight:'bold',
     justifyContent: 'center',
     alignItems: 'center',
-    color: 'black',
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 10,
+    fontSize: 22,
   },
   spacer: {
     height: 40,
   },
-
 });

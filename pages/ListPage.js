@@ -6,11 +6,11 @@ const data = [
   { id: '3', title: 'Sports' },
   { id: '4', title: 'Animal' },
   { id: '5', title: 'Clothing' },
-  { id: '6', title: 'Food' },
-  { id: '7', title: 'Movies' },
-  { id: '8', title: 'Sports' },
-  { id: '9', title: 'Animal' },
-  { id: '10', title: 'Clothing' },
+  { id: '6', title: 'Travel' },
+  { id: '7', title: 'Songs' },
+  { id: '8', title: 'Drinks' },
+  { id: '9', title: 'Cities' },
+  { id: '10', title: 'plants' },
 ];
 
 const ListPage = ({ navigation }) => {
@@ -18,7 +18,9 @@ const ListPage = ({ navigation }) => {
     <Pressable
       style={({ pressed }) => [
         {
-          backgroundColor: pressed ? '#D3D3D3' : '#FFFFFF',
+          backgroundColor: pressed ? '#D3D3D3' : '#FFFFFF', 
+          transform: pressed ? [{ scale: 0.98 }] : [{ scale: 1 }], 
+          shadowOpacity: pressed ? 0.5 : 0.2, 
         },
         styles.itemContainer,
       ]}
@@ -27,6 +29,7 @@ const ListPage = ({ navigation }) => {
       <Text style={styles.itemText}>{item.title}</Text>
     </Pressable>
   );
+  
 
   return (
     <SafeAreaView style={styles.container}>
@@ -37,6 +40,7 @@ const ListPage = ({ navigation }) => {
         keyExtractor={(item) => item.id}
         contentContainerStyle={styles.listContent}
       />
+      
       <View style={styles.navigationContainer}>
         <Pressable style={styles.navButton} onPress={() => navigation.navigate('Home')}>
           <Text style={styles.navButtonText}>Home</Text>
@@ -64,18 +68,19 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     color: '#333',
     padding: 30,
-
   },
   listContent: {
     paddingBottom: 20,
+    color: 'black',
+    
   },
   itemContainer: {
-    padding: 20,
+    padding: 25,
     borderRadius: 10,
     backgroundColor: '#FFF',
     marginBottom: 10,
-    elevation: 3, // Adds shadow for Android
-    shadowColor: '#000', // Adds shadow for iOS
+    elevation: 3, 
+    shadowColor: '#000', 
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 4,
@@ -83,6 +88,8 @@ const styles = StyleSheet.create({
   itemText: {
     fontSize: 18,
     color: '#333',
+    fontWeight: 'bold',
+    color: '#318CE7',
   },
   navigationContainer: {
     flexDirection: 'row',
